@@ -1,5 +1,7 @@
+# Numéro de version
 version: '2'
 services:
+# On déclare un service web qui va utiliser l'image 'dockercloud/hello-world', sur le port 8080, et qui va utiliser les réseaux front-tier et back-tier.
   web:
     image: dockercloud/hello-world
     ports:
@@ -8,6 +10,7 @@ services:
       - front-tier
       - back-tier
 
+# On déclare un srvice redis qui va utiliser l'image 'redis' et un lien vers le container web.
   redis:
     image: redis
     links:
@@ -15,6 +18,7 @@ services:
     networks:
       - back-tier
 
+# On déclare un service lb qui va utiliser l'image 'dockercloud/haproxy' et associer le port 8000 de l'image au port 80 de la machine. On définie également un volume pour qu'il soit monté sur le container.
   lb:
     image: dockercloud/haproxy
     ports:
@@ -27,6 +31,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock 
 
+# Différents réseaux utilisés par les containers et leurs pilotes
 networks:
   front-tier:
     driver: bridge
