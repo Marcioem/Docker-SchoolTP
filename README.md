@@ -8,3 +8,8 @@ on peut observer sur le navigateur, une premiere page affichant hello world.
 
 L'impression écran montre bien que les requetes sont réparties entre les différentes instances du web démarrés avec la commande : docker-compose scale web=5
 ![logs](images/logs.png)
+
+Le fichier Dockerfile comprenant les explications sous forme de commentaires : dockercloud/Dockerfile
+
+## Docker compose
+Le fichier docker-compose.yml comprenant les explications sous forme de commentaires : dockerComposeDemo/docker-compose.yml
